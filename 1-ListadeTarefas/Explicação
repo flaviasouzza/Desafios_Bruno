@@ -1,0 +1,77 @@
+# 🧩 Desafio 01 - Lista de Tarefas em PHP
+
+## 📅 Início: Sábado  
+## 📦 Entrega: Sábado seguinte
+
+---
+
+## 🎯 Objetivo
+
+Criar uma **lista de tarefas simples** utilizando **PHP**, com funcionalidades básicas de **adicionar tarefas** e **listar tarefas** na tela.
+O desafio tem foco em **entender o funcionamento** de sessões, métodos `GET` e `POST`, manipulação de dados no navegador e práticas iniciais com HTML, CSS e JavaScript.
+
+> ⚠️ Não se preocupe com aparência ou organização. O foco é **entregar funcionalidade** e **compreender o que está sendo feito**.
+
+---
+
+## 🛠 Tecnologias que podem ser usadas
+
+- PHP
+- HTML
+- CSS
+- JavaScript 
+
+---
+
+## 🗂 Requisitos
+
+- Criar um **único arquivo** `.php` contendo:
+  - Estrutura HTML com:
+    - **3 inputs**
+    - **Botão de adicionar tarefa**
+    - **Lista de tarefas exibida abaixo**
+  - Lógica PHP para:
+    - **Adicionar tarefa**
+    - **Exibir lista de tarefas**
+    - **Utilizar sessão com `session_start()` e `$_SESSION`**
+    - **Encerrar sessão com `session_destroy()` (se necessário)**
+
+- Utilizar métodos **GET e POST** para envio dos dados via formulário.
+
+---
+
+## 🧪 Apresentação
+
+- A aplicação deve ser acessada via navegador (cliente = navegador).
+- Além da visualização web, você também deve **mostrar a lista de tarefas no terminal** (com `print_r()` ou similar) - OPCIONAL
+
+- **Não precisa estar bonito ou perfeito**, mas deve funcionar.
+
+---
+
+## 🔁 Fluxo esperado
+
+1. A aplicação inicia com `session_start()`.
+2. Usuário insere uma tarefa nos campos de input.
+3. Ao clicar no botão "Adicionar Tarefa", a tarefa é armazenada em `$_SESSION`.
+4. A lista de tarefas atualizada é exibida abaixo do formulário.
+5. (Opcional) Adicionar opção para limpar lista ou encerrar sessão.
+
+---
+
+## 📝 Anotações obrigatórias
+
+Durante o desenvolvimento:
+
+- Criar **repositório no GitHub** chamado `desafios-bruno`.
+- Fazer **commits frequentes** explicando cada passo.
+- Criar um arquivo ou seção com:
+  - **Todas as dúvidas**
+  - **Consultas realizadas**
+  - **Links e fóruns utilizados**
+
+---
+
+## 📆 Acompanhamento
+
+- **Consultorias**:
