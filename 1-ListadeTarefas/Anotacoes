@@ -1,0 +1,135 @@
+
+-- Como alterar fonte (Tamanho, cor)
+http://www.clem.ufba.br/tuts/html/c15.htm
+https://kinsta.com/pt/blog/cor-da-fonte-html/
+https://www.devmedia.com.br/codigo-para-background-html-e-css/37206
+
+-- O que é <H1> 2...A 6>
+https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/Heading_Elements
+
+-- Como devo centralizar texto
+https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/center
+
+-- header
+https://www.php.net/manual/pt_BR/function.header.php
+
+O que já fiz com as informações acima:
+
+<!DOCTYPE html>   // Informando o uso do HTML
+<html lang -"pt-br"> // Informando idioma Brasil
+
+<center>  // centralizando texto
+<h1 style = "color: green"> Bem Vindo ao TaskFlow </h1> //Definindo que Bem vindo... terá cor verde, e que usarei H1 para mostrar o nível do cabeçalho mais importante
+
+</center> // fechando para centralização ser aplicada
+
+
+
+-- Primeira documentação utilizada:
+https://www.php.net/manual/pt_BR/book.session.php
+https://www.php.net/manual/pt_BR/function.session-start.php
+https://scriptdev.com.br/como-trabalhar-com-sessoes-em-php/
+https://medium.com/weyes/trabalhando-e-manipulando-sess%C3%A3o-no-php-ece2d9bf9e31
+                                                                                           
+<!DOCTYPE html>
+<html lang -"pt-br">
+
+<?php
+
+session_start();
+$_SESSION['nome'] = 'Flávia';
+$nome = $_SESSION['nome'];
+
+session_destroy();
+?>
+
+<center>  
+<h1 style = "color: green"> Bem Vindo ao TaskFlow </h1> 
+</center> 
+
+
+-- Formulário:
+https://www.devmedia.com.br/php-forms-manipulando-dados-de-formularios/29392
+https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/input
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form
+https://developer.mozilla.org/pt-BR/docs/Learn_web_development/Extensions/Forms/Your_first_form
+https://www.homehost.com.br/blog/tutoriais/formulario-html/
+https://www.w3schools.com/tags/ref_httpmethods.asp
+https://stackoverflow.com/questions/10057752/html-form-post-to-php-page
+https://pt.stackoverflow.com/questions/89105/como-saber-se-o-form-%C3%A9-enviado#:~:text=A%20maneira%20mais%20simples%20de,enviado%20%C3%A9%20atrav%C3%A9s%20do%20REQUEST_METHOD%20.&text=REQUEST_METHOD%20indica%20qual%20%C3%A9%20o,h%C3%A1%20restri%C3%A7%C3%B5es%20para%20seu%20uso.
+https://celke.com.br/artigo/como-usar-funcao-empty-e-isset-no-php
+https://www.php.net/manual/pt_BR/function.empty.php
+https://pt.stackoverflow.com/questions/304638/verificar-variavel-vazia-no-php
+https://www.homehost.com.br/blog/tutoriais/php/php-foreach/
+https://stackoverflow.com/questions/20582962/whats-the-difference-between-isset-and-empty-in-php
+https://www.canalti.com.br/programacao/empty-e-isset-no-php-o-que-e-e-como-usar#:~:text=empty%20e%20isset%20s%C3%A3o%20duas,como%20estar%20vazio%20ou%20n%C3%A3o.
+https://pt.stackoverflow.com/questions/91243/quando-devo-usar-empty-ou-isset
+https://dev.to/tadeubdev/php-curtas-funcoes-empty-e-isset-esse-valor-realmente-existe-3oh4
+https://www.devmedia.com.br/if-switch-for-while-e-foreach-em-php/29527
+https://pt.stackoverflow.com/questions/304638/verificar-variavel-vazia-no-php
+https://celke.com.br/artigo/como-usar-funcao-empty-e-isset-no-php
+https://www.php.net/manual/pt_BR/function.empty.php
+
+
+---- Correções:
+<?php														// Iniciando PHP
+if (session_status() !== PHP_SESSION_ACTIVE) {  			// Iniciando uma sessão e verificando se está ativa
+  session_cache_expire(1);									//
+  session_start();											//
+}
+
+?>															// fecha o primeiro ciclo PHP
+
+<!DOCTYPE html>
+<html lang= "pt-br">
+<head>
+    <title>TaskFlow</title>
+</head>
+
+<center>  
+<h1 style = "color: green"> Bem Vindo ao TaskFlow </h1> 
+</center> 
+  
+<body>
+<form method="post"  action="" >
+  
+    <label for="tarefa"> Tarefas:</label> 
+    <input id="tarefa" name="tarefa"/>
+    <button type="submit">Salvar</button> 
+
+</form>
+<?php
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if (!empty($_POST['tarefa'])) {
+    if (!isset($_SESSION['tarefas'])) {
+        $_SESSION['tarefas'] = [];
+    }
+        $_SESSION['tarefas'] [] = $_POST ['tarefa'];
+
+}
+
+    foreach ($_SESSION as $tarefas ) {
+           echo "$tarefa <br>";
+}
+
+}
+
+?>
+</body>
+</html>
+
+
+
+
+
+-- Bordas para as caixinhas de tarefa:
+https://pt.stackoverflow.com/questions/303468/caixa-com-borda-e-um-t%C3%ADtulo-sobre-a-borda-superior
+https://www.devmedia.com.br/desenvolvendo-layouts-para-caixas-de-pesquisa-em-paginas-web/37225
+https://www.dio.me/articles/criando-uma-lista-de-tarefas-com-javascript-htmlcss
+https://concani3.wordpress.com/2022/07/10/dicas-html-margens-preenchimento-e-bordas/
+https://stackoverflow.com/questions/20176673/how-do-i-insert-multiple-checkbox-values-into-a-table
+https://pt.stackoverflow.com/questions/324618/valor-n%C3%A3o-se-encaixa-dentro-da-caixa-de-texto
+https://www.quora.com/How-can-I-create-multiple-textboxes-in-PHP
+
+
