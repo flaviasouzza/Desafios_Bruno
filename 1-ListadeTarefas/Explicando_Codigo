@@ -44,9 +44,9 @@ if(isset($_POST['tarefa'])){															    // Verifica se foi enviada uma no
 </form>
 <?php
 	$tarefas = $_SESSION['tarefas'];													// Atribui o array de tarefas da sessão à variável $tarefas
-	foreach($tarefas as $tarefa){														  // Percorre cada tarefa no array para exibir na tela
-		echo $tarefa . "<br>";															    // Exibe a tarefa na tela com quebra de linha		
-	}
+	echo '<div style="border: 1px solid #ccc; padding: 10px; width: 300px; margin: 20px auto; text-align: left;" >';       // 
+		echo htmlspecialchars($tarefa);
+		echo '</div>';
 ?>
 </body>
 </html>
@@ -89,6 +89,36 @@ else: executa esse bloco se a sessão tarefas não existir
 $_SESSION['tarefas'] = [];: cria a lista de tarefas como array vazio
 A lógica se repete: se já tiver uma tarefa via POST, adiciona ao array
 
+### Explicando como fazer uma borda para cada tarefa 
+
+# Código
+echo '<div style="border: 1px solid #ccc; padding: 10px; width: 300px; margin: 20px auto; text-align: left;" >';       // 
+		echo htmlspecialchars($tarefa);
+		echo '</div>';
+style="":
+
+# Explicação:
+- border: 1px solid #ccc;     = Cria uma borda ao redor da div.
+1px → espessura da borda.
+solid → estilo da borda (linha contínua).
+
+- #ccc → cor cinza claro
+
+- padding: 10px; Adiciona espaço interno entre o conteúdo da div e a borda, pra que não fique tudo colado
+
+- width: 300px; Define a largura fixa da div como 300 pixels.
+
+- margin: 20px auto; margin é o espaço externo, fora da div.
+
+- 20px em cima e embaixo espaçamento para as tarefas
+
+- auto nos lados faz a div ficar centralizada horizontalmente.
+
+- text-align: left; alinha o texto a esquerda dentro da div
+
+- htmlspecialchars() é uma medida de segurança pra evitar que seja inserido algum script dentro da tarefa, algo malicioso 
+
+- </div> só fechar a div aberta 
 ### Bloco HTML:
 
 # Código 
