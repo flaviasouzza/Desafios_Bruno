@@ -72,13 +72,12 @@ https://www.php.net/manual/pt_BR/function.empty.php
 
 
 ---- Correções:
-<?php														// Iniciando PHP
+<?php														                      // Iniciando PHP
 if (session_status() !== PHP_SESSION_ACTIVE) {  			// Iniciando uma sessão e verificando se está ativa
-  session_cache_expire(1);									//
-  session_start();											//
+  session_cache_expire(1);							              // session_start();											
 }
 
-?>															// fecha o primeiro ciclo PHP
+?>														                       	// fecha o primeiro ciclo PHP
 
 <!DOCTYPE html>
 <html lang= "pt-br">
@@ -131,5 +130,13 @@ https://concani3.wordpress.com/2022/07/10/dicas-html-margens-preenchimento-e-bor
 https://stackoverflow.com/questions/20176673/how-do-i-insert-multiple-checkbox-values-into-a-table
 https://pt.stackoverflow.com/questions/324618/valor-n%C3%A3o-se-encaixa-dentro-da-caixa-de-texto
 https://www.quora.com/How-can-I-create-multiple-textboxes-in-PHP
+
+
+-- Session destroy 
+
+https://www.w3resource.com/php-exercises/cookies-sessions/php-cookies-sessions-exercise-6.php
+https://phppot.com/php/php-session-destroy/
+https://phppot.com/php/php-session-destroy/
+https://pt.stackoverflow.com/questions/31393/como-destruir-uma-sess%C3%A3o-espec%C3%ADfica
 
 
