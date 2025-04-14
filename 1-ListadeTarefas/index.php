@@ -42,6 +42,8 @@ if(isset($_POST['tarefa'])){
 		echo htmlspecialchars($tarefa);
 		echo '</div>';
 	}
+
+session_destroy();
 ?>
 </body>
 </html>
