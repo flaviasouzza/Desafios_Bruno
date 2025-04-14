@@ -25,18 +25,23 @@ if(isset($_POST['tarefa'])){
 </center> 
   
 <body>
+<center>  																				
 <form method="post">																	
   
     <label for="tarefa"> Tarefas:</label> 												
     <input id="tarefa" name="tarefa"/>													
-    <button type="submit">Salvar</button> 												
+    <button type="submit">Salvar</button> 		
+	</center> 
+
 </form>
 <?php
 	$tarefas = $_SESSION['tarefas'];													
 	foreach($tarefas as $tarefa){														
-		echo $tarefa . "<br>";													
+		
+		echo '<div style="border: 1px solid #ccc; padding: 10px; width: 300px; margin: 20px auto; text-align: left;" >';
+		echo htmlspecialchars($tarefa);
+		echo '</div>';
 	}
 ?>
 </body>
 </html>
-
