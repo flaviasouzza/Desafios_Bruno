@@ -1,0 +1,152 @@
+<?php
+session_start();																		          // Iniciar a sessão
+
+/* Este trecho comentado foi usado para DEBUG, ou seja trecho para depuração: exibe o conteúdo de $_SESSION e $_POST
+ echo'<pre>';
+var_dump($_SESSION); 
+echo '</pre>';
+echo '<br>';
+echo '<pre>';
+var_dump(isset($_POST)?$_POST:[]);
+echo '</pre>'; */
+
+if(isset($_SESSION['tarefas'])){														  // Verifica se já existe um array de tarefas armazenado na sessão
+if(isset($_POST['tarefa'])){															    // Verifica se foi enviada uma nova tarefa via método POST
+	array_push($_SESSION['tarefas'], $_POST['tarefa']);					// Adiciona a nova tarefa ao array de tarefas na sessão
+}
+} else {																				              // se não, caso ainda não exista uma sessão de tarefas
+	$_SESSION['tarefas'] = [];														    	// Inicializa a sessão de tarefas com um array vazio
+	if(isset($_POST['tarefa'])){													    	// Verifica se foi enviada uma nova tarefa (primeira tarefa)
+	array_push($_SESSION['tarefas'], $_POST['tarefa']);					// Adiciona a tarefa enviada ao array na sessão
+}
+}
+
+?>
+
+
+<!DOCTYPE html>																		        	<!-- Define o tipo do documento como HTML5 -->
+<html lang= "pt-br">																      	<!-- Define o idioma da página como português do Brasil -->
+<head>
+    <title>TaskFlow</title>														   		<!-- Define o título da aba como "TaskFlow" -->
+</head>
+
+<center>  																				          <!-- Título principal da página centralizado, com cor verde -->
+<h1 style = "color: green"> Bem Vindo ao TaskFlow </h1> 								
+</center> 
+  
+<body>
+<form method="post">															      		<!-- Formulário que envia os dados via método POST -->
+  
+    <label for="tarefa"> Tarefas:</label> 									<!-- Campo de entrada para adicionar uma nova tarefa -->
+    <input id="tarefa" name="tarefa"/>													
+    <button type="submit">Salvar</button> 									<!-- Botão para enviar a tarefa ao formulário -->
+
+</form>
+<?php
+	$tarefas = $_SESSION['tarefas'];													// Atribui o array de tarefas da sessão à variável $tarefas
+	foreach($tarefas as $tarefa){														  // Percorre cada tarefa no array para exibir na tela
+		echo $tarefa . "<br>";															    // Exibe a tarefa na tela com quebra de linha		
+	}
+?>
+</body>
+</html>
+
+
+
+<!-- ### Explicação detalhada do Código 
+<?php 
+// Inicia o bloco PHP
+// session_start(); 
+// Inicia a sessão — isso permite armazenar dados temporários entre as requisições (como a lista de tarefas)
+/*
+
+### Bloco de lógica principal:
+
+# Código:
+if(isset($_SESSION['tarefas'])){
+# Explicação:
+if: estrutura condicional ("se")
+isset(): verifica se a variável existe e não é null
+$_SESSION['tarefas']: acessa a sessão de tarefas (array onde as tarefas ficam armazenadas)
+
+# Código:
+if(isset($_POST['tarefa'])){
+	array_push($_SESSION['tarefas'], $_POST['tarefa']);
+}
+# Explicação:
+$_POST['tarefa']: pega o valor enviado pelo formulário com o método POST
+array_push(array, valor): adiciona o valor no final do array (nesse caso, adiciona a tarefa à lista)
+
+# Código:
+} else {
+	$_SESSION['tarefas'] = [];
+	if(isset($_POST['tarefa'])){
+		array_push($_SESSION['tarefas'], $_POST['tarefa']);
+	}
+}
+# Explicação:
+else: executa esse bloco se a sessão tarefas não existir
+$_SESSION['tarefas'] = [];: cria a lista de tarefas como array vazio
+A lógica se repete: se já tiver uma tarefa via POST, adiciona ao array
+
+### Bloco HTML:
+
+# Código 
+<!DOCTYPE html>    								                        			<!-- Define o documento como HTML5 -->
+<html lang="pt-br">									                        		<!-- Define o idioma como português do Brasil -->
+
+<head>
+  <title>TaskFlow</title>					                        			<!-- Define o título da aba do navegador -->
+</head>
+
+<center>
+  <h1 style="color: green">Bem-vindo ao TaskFlow</h1>
+</center>
+
+# Explicação:
+<center>: centraliza o conteúdo (mesmo obsoleto, ainda funciona em projetos simples)
+<h1>: título principal
+style="color: green": aplica cor verde ao texto
+
+
+### Formulário HTML:
+
+# Código:
+<form method="post">
+  <label for="tarefa">Tarefas:</label>                            <!-- "label" descreve o campo de entrada -->
+
+  <input id="tarefa" name="tarefa"/>
+  <!-- Campo de texto onde o usuário digita a tarefa.
+       "id" é usado para identificar o campo no HTML/CSS/JS,
+       "name" é usado para enviar o dado ao PHP -->
+
+  <button type="submit">Salvar</button>
+  <!-- Botão para enviar o formulário -->
+</form>
+
+### Bloco de exibição de tarefas:
+
+# Código 
+<?php
+  $tarefas = $_SESSION['tarefas'];
+  // Cria uma variável que recebe as tarefas da sessão
+
+  foreach($tarefas as $tarefa){
+    // "foreach" percorre o array de tarefas
+    echo $tarefa . "<br>";
+    // Exibe cada tarefa com uma quebra de linha
+  }
+?>
+
+### Encerramento do HTML 
+
+# Código
+</body>
+</html>
+
+# Explicação:
+</body>: fecha o corpo do HTML
+</html>: fecha o documento
+
+
+*/
